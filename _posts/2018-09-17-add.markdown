@@ -4,4 +4,19 @@ title:  "add new"
 date:   2018-09-17 17:22:27 +0000
 categories: jekyll update
 ---
-##add new one
+
+######add new one
+
+test
+==================
+
+
+	void main()
+	{
+		printf("Hello, Markdown.");
+	}
+
+*斜体*，_斜体_
+**粗体**，__粗体__
+
+
