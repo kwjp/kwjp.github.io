@@ -1,0 +1,7 @@
+---
+layout: post
+title:  "note"
+date:   2018-09-20 00:00:00 +0000
+categories: jekyll update
+---
+[Centos6.X升级Python为2.7版本并安装Pip](https://blog.csdn.net/LoveCarpenter/article/details/74011641 "Centos")
