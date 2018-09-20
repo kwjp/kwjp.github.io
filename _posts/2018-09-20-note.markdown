@@ -5,3 +5,6 @@ date:   2018-09-20 00:00:00 +0000
 categories: jekyll update
 ---
 [Centos6.X升级Python为2.7版本并安装Pip](https://blog.csdn.net/LoveCarpenter/article/details/74011641 "Centos")
+
+[configure: error: no acceptable C compiler found in $PATH 问题解决](http://blog.51cto.com/raulkang/573151)
+
