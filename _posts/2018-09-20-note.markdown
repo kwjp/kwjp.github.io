@@ -23,10 +23,12 @@ ssserver -c /etc/shadowsocks.json -d stop
 /sbin/iptables -I INPUT -p tcp --dport 443 -j ACCEPT  
 /sbin/iptables -I INPUT -p tcp --dport 444 -j ACCEPT  
 /sbin/iptables -I INPUT -p tcp --dport 888 -j ACCEPT  
+/sbin/iptables -I INPUT -p tcp --dport 8888 -j ACCEPT  
 /sbin/iptables -I INPUT -p tcp --dport 8989 -j ACCEPT  
 
 查看打开的端口  
 /etc/init.d/iptables status  
 
+重启后开放的端口会失效，需要重新开放端口
 
 [500错误](https://github.com/shadowsocks/shadowsocks/issues/1275)
