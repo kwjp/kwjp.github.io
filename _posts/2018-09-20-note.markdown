@@ -7,8 +7,11 @@ categories: jekyll update
 centos6搭建ss会遇到的问题和解决办法参考
 
 [Centos6.X升级Python为2.7版本并安装Pip](https://blog.csdn.net/LoveCarpenter/article/details/74011641 "Centos")
+
 [linux下安装xz命令](https://blog.csdn.net/qq_21383435/article/details/79540117)
+
 [configure: error: no acceptable C compiler found in $PATH 问题解决](http://blog.51cto.com/raulkang/573151)
+
 [使用ShadowSocks科学上网及突破公司内网](http://www.devtalking.com/articles/shadowsocks-guide/)
 
 停止和启动服务
