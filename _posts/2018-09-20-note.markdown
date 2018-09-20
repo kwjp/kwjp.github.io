@@ -14,7 +14,7 @@ centos6搭建ss会遇到的问题和解决办法参考
 
 [使用ShadowSocks科学上网及突破公司内网](http://www.devtalking.com/articles/shadowsocks-guide/)
 
-停止和启动服务
+停止和启动服务  
 ssserver -c /etc/shadowsocks.json -d start   
 ssserver -c /etc/shadowsocks.json -d stop  
 
@@ -26,7 +26,7 @@ ssserver -c /etc/shadowsocks.json -d stop
 /sbin/iptables -I INPUT -p tcp --dport 8989 -j ACCEPT  
 
 查看打开的端口  
-/etc/init.d/iptables status
+/etc/init.d/iptables status  
 
 
 [500错误](https://github.com/shadowsocks/shadowsocks/issues/1275)
