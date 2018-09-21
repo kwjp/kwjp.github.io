@@ -52,21 +52,21 @@ vim /etc/shadowsocks.json，根据应用模式分别写入如下内容
 ssserver -c /etc/shadowsocks.json -d start   
 ssserver -c /etc/shadowsocks.json -d stop  
 
-#6.centos端口相关
-##6.1开放端口  
+# 6.centos端口相关
+## 6.1开放端口  
 /sbin/iptables -I INPUT -p tcp --dport 443 -j ACCEPT  
 /sbin/iptables -I INPUT -p tcp --dport 444 -j ACCEPT  
 /sbin/iptables -I INPUT -p tcp --dport 888 -j ACCEPT  
 /sbin/iptables -I INPUT -p tcp --dport 8888 -j ACCEPT  
 /sbin/iptables -I INPUT -p tcp --dport 8989 -j ACCEPT  
 
-##6.2查看打开的端口  
+## 6.2查看打开的端口  
 /etc/init.d/iptables status  
 
-##6.3注意事项
+## 6.3注意事项
 重启后开放的端口会失效，需要重新开放端口
 
-#7.客户端500错误
+# 7.客户端500错误
 网上查到了一下方式说是可以解决
 [500错误](https://github.com/shadowsocks/shadowsocks/issues/1275)
 其实是被GFW了，解决办法是，服务器备份一下，从东京转到洛杉矶即可
