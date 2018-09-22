@@ -13,12 +13,12 @@ permalink: /about/
 - MyBatis  
 - FreeMarker  
 
-开发完成后也会写把用到的技术梳理一下
+开发完成后也会把用到的技术梳理一下
 
 以后博客的内容会集中在：  
  - AWS Certified Solutions Architect – Associate 
  - Japanese-Language Proficiency Test - N1
  - Android 
- - Java web(SSM)
+ - Java
  - Leetcode
 
