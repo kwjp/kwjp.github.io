@@ -18,5 +18,8 @@ permalink: /about/
 以后博客的内容会集中在：  
  - AWS Certified Solutions Architect – Associate 
  - Japanese-Language Proficiency Test - N1
+ - Android 
+ - Java web(SSH)
+ - Leetcode
 
 
