@@ -19,6 +19,6 @@ permalink: /about/
  - AWS Certified Solutions Architect – Associate 
  - Japanese-Language Proficiency Test - N1
  - Android 
- - Java web(SSH)
+ - Java web(SSM)
  - Leetcode
 
