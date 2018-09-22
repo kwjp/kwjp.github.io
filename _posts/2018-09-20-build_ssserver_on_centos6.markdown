@@ -1,28 +1,20 @@
 ---
 layout: post
-title:  "CentOs6 搭建ss会遇到的问题和解决办法参考"
+title:  "CentOs6 搭建ShadowSocks Server"
 date:   2018-09-20 00:00:00 +0000
-categories: ss
+categories: ShadowSocks
 ---
-# 1.升级python版本
-centos6自带python，但版本号是2.6.6，安装ShadowSocks需要使用pip，而pip要求python环境在2.7以上，所以需要先升级一下服务器的python版本，具体参考下面这篇文章  
-[Centos6.X升级Python为2.7版本并安装Pip](https://blog.csdn.net/LoveCarpenter/article/details/74011641 "Centos")  
+## 1 安装ShadowSocks
+```
+yum install python-setuptools
+easy_install pip
+pip install shadowsocks
+```
 
-# 2.安装xz
-安装python是需要先下载源码，再解压、编译的，python源码压缩包是.tar.xz格式的，其解压需要用到指令unxz，这需要在服务器上安装xz，具体参考下面的文章  
-[linux下安装xz命令](https://blog.csdn.net/qq_21383435/article/details/79540117)
-
-# 3.出错处理
-在执行./configure的时候，可能会报如下错误
->configure: error: no acceptable C compiler found in $PATH
-
-可以参照下面文章结局  
-[configure: error: no acceptable C compiler found in $PATH 问题解决](http://blog.51cto.com/raulkang/573151)
-
-# 4.配置ShadowSocks    
+## 2 配置ShadowSocks    
 vim /etc/shadowsocks.json，根据应用模式分别写入如下内容  
 
-## 4.1单用户模式  
+### 2.1单用户模式  
 
 ```json
 {
@@ -32,7 +24,7 @@ vim /etc/shadowsocks.json，根据应用模式分别写入如下内容
   "method": "aes-256-cfb"
 }
 ```
-## 4.2多用户模式  
+### 2.2多用户模式  
 ```json
 {
     "server":"0.0.0.0",
@@ -48,28 +40,87 @@ vim /etc/shadowsocks.json，根据应用模式分别写入如下内容
 }
 ```
 
-# 5.停止和启动ShadowSocks服务  
+## 3 停止和启动ShadowSocks服务  
 ssserver -c /etc/shadowsocks.json -d start   
 ssserver -c /etc/shadowsocks.json -d stop  
 
-# 6.centos端口相关
-## 6.1开放端口  
+## 4 centos端口相关
+### 4.1 开放端口  
 /sbin/iptables -I INPUT -p tcp --dport 443 -j ACCEPT  
 /sbin/iptables -I INPUT -p tcp --dport 444 -j ACCEPT  
 /sbin/iptables -I INPUT -p tcp --dport 888 -j ACCEPT  
 /sbin/iptables -I INPUT -p tcp --dport 8888 -j ACCEPT  
 /sbin/iptables -I INPUT -p tcp --dport 8989 -j ACCEPT  
 
-## 6.2查看打开的端口  
+### 4.2 查看当前打开的端口  
 /etc/init.d/iptables status  
 
-## 6.3注意事项
-重启后开放的端口会失效，需要重新开放端口
+## 5 FQA
+收集的一些安装过程中的常见问题
 
-# 7.客户端500错误
-网上查到了一下方式说是可以解决
-[500错误](https://github.com/shadowsocks/shadowsocks/issues/1275)
-其实是被GFW了，解决办法是，服务器备份一下，从东京转到洛杉矶即可
+### 5.1 easy_install pip时报错
+centos6自带python，但版本号是2.6.6，而pip要求python环境在2.7以上，所以需要先升级一下服务器的python版本，具体参考下面这篇文章  
+[Centos6.X升级Python为2.7](https://kwjp.github.io/centos/2018/09/22/upgrade_python27.html)  
 
-# 8.参考文献  
+### 5.2 unxz时报错
+安装python2.7是需要先下载源码，再解压、编译的，python源码压缩包是.tar.xz格式的，其解压需要用到指令unxz，这需要在服务器上安装xz。  
+
+- 下载
+```
+wget https://jaist.dl.sourceforge.net/project/lzmautils/xz-5.2.4.tar.gz
+```
+如果wget不到说明下载地址有变动，去这里查看[最新下载地址](https://sourceforge.net/projects/lzmautils/files/latest/download)  
+
+- 解压、编译
+```
+# tar -zxvf xz-5.2.4.tar.gz
+# cd xz-5.2.4
+# mkdir /opt/software/zx
+# ./configure --prefix=/opt/software/zx     #指定安装目录
+# make && make install    #编译并安装
+# ln -s /opt/software/zx /usr/local/bin/xz     #建立软链接
+```
+
+- 配置环境变量  
+vim /etc/profile，在 export PATH USER LOGNAME MAIL HOSTNAME HISTSIZE HISTCONTROL 一行的上面添加如下内容:
+```
+export XZ_HOME=/opt/software/zx
+export PATH=$XZ_HOME/bin:$PATH
+```
+source /etc/profile 使修改生效
+
+- 校验
+```
+[root@ip-172-31-39-231 ~]# xz -V
+xz (XZ Utils) 4.999.9beta
+```
+
+### 5.3 configure: error: no acceptable C compiler found in $PATH
+问题描述：缺少c编译器  
+解决办法：安装gcc  
+```
+yum install gcc
+```
+
+
+### 5.4 ShadowSocks客户端500错误
+问题描述：同一台服务器，在日本可正常连接，在国内连接后打开google时始终报500错误
+原因分析：ip被墙了，可能是太多人在东京的服务器上装ss了。
+解决办法：把服务器搬到美国
+
+ - 登陆vultr后台，并Take Snapshot
+ - Deploy new server
+ - Server Location选择Los Angeles United States
+ - Server Type选择Snapshot，并选中第一步的备份
+
+### 5.5 服务器重启后，无法连接
+
+- 重启后iptables端口开放配置会失效，需要重新配置
+- 重启后当然也需要手动启动ssserver
+
+# 6.参考文献  
 [使用ShadowSocks科学上网及突破公司内网](http://www.devtalking.com/articles/shadowsocks-guide/)
+
+
+
+
