@@ -1,13 +1,9 @@
 ---
 layout: post
-title:  "AWS 最佳实践"
+title:  "AWS Design Principles - Disposable Resources Instead of Fixed Servers"
 date:   2018-09-23 00:00:00 +0000
 categories: aws
 ---
-
-[TOCM]
-
-[TOC]
 
 在传统的IT环境里，我们得不断地修复资源和导入新资源，这需要我们不停地登陆到服务器去配置软件或修复bug，写死各种IP地址，跑测试用例，或者执行其他一系列操作。
 

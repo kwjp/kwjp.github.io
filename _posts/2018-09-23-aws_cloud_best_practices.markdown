@@ -5,10 +5,6 @@ date:   2018-09-23 00:00:00 +0000
 categories: aws
 ---
 
-[TOCM]
-
-[TOC]
-
 ## 说明
 这是aws的学习笔记，会边读边记录，读完再整理  
 该文件官方原版下载地址[设计云架构：AWS 最佳实践](https://d1.awsstatic.com/whitepapers/AWS_Cloud_Best_Practices.pdf)
