@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "markdown 语法笔记"
-date:   2018-09-21 00:00:00 +0000
+title:  "Centos6.X升级Python为2.7版本并安装Pip"
+date:   2018-09-22 00:00:00 +0000
 categories: markdown
 ---
  - 标题  
