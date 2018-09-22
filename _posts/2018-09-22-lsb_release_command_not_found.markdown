@@ -8,7 +8,7 @@ categories: CentOs
 在aws买的centos后，想看centos的版本号，执行lsb_release -a时报如下错误
  > bash: lsb_release: command not found...
 
-### 解决办法
+### 解决办法1
 安装lsb_release 执行命令 
 > yum install -y redhat-lsb
 
@@ -22,3 +22,8 @@ Description:    CentOS release 6.10 (Final)
 Release:    6.10
 Codename:   Final
 ```
+
+###解决办法2
+如果只是想看centos版本号，还可以通过通过查看redhat-release文件来实现  
+>[root@ip-172-31-39-231 ~]# cat /etc/redhat-release  
+CentOS release 6.10 (Final)
