@@ -122,8 +122,9 @@ yum install gcc
 ### 5.6 bash: lsb_release: command not found
 问题描述:在aws买的centos后，想看centos的版本号，执行lsb_release -a时报如下错误  
 解决办法1:安装lsb_release ,执行命令 
-> yum install -y redhat-lsb
-
+```
+yum install -y redhat-lsb
+```
 解决办法2:cat /etc/redhat-release
 
 # 6.参考文献  
