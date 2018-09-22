@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "centos6 搭建ss会遇到的问题和解决办法参考"
+title:  "CentOs6 搭建ss会遇到的问题和解决办法参考"
 date:   2018-09-20 00:00:00 +0000
-categories: jekyll update
+categories: ss
 ---
 # 1.升级python版本
 centos6自带python，但版本号是2.6.6，安装ShadowSocks需要使用pip，而pip要求python环境在2.7以上，所以需要先升级一下服务器的python版本，具体参考下面这篇文章  
