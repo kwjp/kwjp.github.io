@@ -46,11 +46,14 @@ ssserver -c /etc/shadowsocks.json -d stop
 
 ## 4 centos端口相关
 ### 4.1 开放端口  
+
+```shell
 /sbin/iptables -I INPUT -p tcp --dport 443 -j ACCEPT  
 /sbin/iptables -I INPUT -p tcp --dport 444 -j ACCEPT  
 /sbin/iptables -I INPUT -p tcp --dport 888 -j ACCEPT  
 /sbin/iptables -I INPUT -p tcp --dport 8888 -j ACCEPT  
 /sbin/iptables -I INPUT -p tcp --dport 8989 -j ACCEPT  
+```
 
 ### 4.2 查看当前打开的端口  
 /etc/init.d/iptables status  
