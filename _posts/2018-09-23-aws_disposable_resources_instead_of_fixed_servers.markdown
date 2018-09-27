@@ -18,4 +18,20 @@ categories: aws
 
 ### Bootstrapping
 使用默认配置启动EC2或者RDS,然后再执行一些自动化配置脚本来安装软件或者拷贝数据，
-从而使这台新的资源达到一个特定的状态
+从而使这台新的资源达到一个特定的状态，通过在脚本里设置参数来实现不同环境的初始化(比如开发环境和测试环境)，从而实现脚本的复用
+
+你可以使用数据脚本或者cloud-init和AWS OpsWorks lifecycle events来实现EC2的自动初始化，还可以使用Chef or Puppet。AWS OpsWorks原生支持Chef recipes or Bash/PowerShell scripts。通过使用这些脚本，并配合上AWS APIs或者AWS CloudFormation，可以实现几乎所有aws资源的开通和初始化操作
+
+### Golden Images
+EC2,RDS,EBS都可以从golden image上启动，golden image指的是一个特定状态的快照(snapshot),比起Bootstrapping方式来，Golden Image方式起始更快，而且也比避免了对配置服务或第三方脚本工具的依赖，在自动弹性环境中，当想要快速而又稳定地启动更多资源来响应需求变动时，Golden Images策略就显得很重要。
+
+你可以个性化设置EC2，然后通过创建AMI来保存这些配置，你可以从这个AMI上启动任意台EC2, 而且他们都已经应用了你保存的个性化配置。每当你想改变你的配置时，就需要创建一个新的Golden Image，这要求你得有针对AMI的版本管理约定。我们建议你使用Bootstrapping策略的脚本来创建新的EC2，然后将这台EC2保存一个Golden Image，这样更便于日后的测试和调整。
+
+
+另外，如果你已经有了一个虚拟环境的镜像，那也可以通过VM的导入导出功能，将其转化成一个AMI。当然你也可以使用别的aws分享的AMI，或者通过第三方团体提供的AWS Community AMI catalog以及AWS Marketplace来获取AMI。
+
+虽然Golden Image策略大部分情况是用于EC2，但是它也是可以用在RDS和EBS上。比如当你想要创建一个测试环境时，数据库就可以通过RDS的Gloden Image来创建，这样就不用通过SQL脚本来导入导出数据了。
+
+另一个流行的做法是Docker，
+
+
