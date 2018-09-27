@@ -32,6 +32,21 @@ EC2,RDS,EBS都可以从golden image上启动，golden image指的是一个特定
 
 虽然Golden Image策略大部分情况是用于EC2，但是它也是可以用在RDS和EBS上。比如当你想要创建一个测试环境时，数据库就可以通过RDS的Gloden Image来创建，这样就不用通过SQL脚本来导入导出数据了。
 
-另一个流行的做法是Docker，
+另一个流行的做法是Docker，它是一个开源的轻量化容器。AWS Elastic Beanstalk and the Amazon EC2 Container Service (Amazon ECS)支持Docker，它们可以让你在EC2集群上部署和管理多个Docker容器。
+
+### 混合模式
+你可以把以上两种策略混合起来用，一部分配置通过Golden Image来管理，另一部分则通过Bootstrapping的脚本来动态控制。
+
+如何界定两者的界限呢？  
+通常，以下两种类型的配置通过Golden Image来实现
+
+ - 不经常变动的
+ - 有第三方依赖的
+比如有些web server每次初始化都要下载很多软件，这种就可以通过Golden Image来管理
+
+
+
+而依环境而变动的配置，就最好通过脚本配置来管理。  
+比如你需要部署的web应用程序需要经常更新版本，而你对每个应用版本都创建Golden Image就是一种不好的做法。或者当你不想写死数据库地址的时候（因为他们在测试环境和正式环境中不一样）。User data or tags可以用来帮助你创建更通用的AMI，这些信息可以在启动时配置。比如说你管着很多业务服务器，那你可以把他们通过同一个AMI来启动，仅仅是在启动前输入不同的User data or tags。
 
 
