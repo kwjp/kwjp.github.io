@@ -15,3 +15,5 @@ categories: aws
 |SWF　　　　　|Amazon Simple Workflow
 |AMI　　　　　|Amazon Machine Image					   |aws的快照|
 |EBS　　　　　|Amazon Elastic Block Store			   |块存储卷|
+|SNS　　　　　|Amazon Simple Notification Service	   |消息通知|
+
