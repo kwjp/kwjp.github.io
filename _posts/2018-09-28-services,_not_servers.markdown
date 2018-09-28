@@ -29,5 +29,10 @@ Another approach that can reduce the operational complexity of running applicati
 
 它运行在AWS Lambda上，使用API Gateway可以构建几乎可以无限伸缩的异步API，如果结合S3里的静态资源，这种模式几乎可以完整地运行一个网站应用。
 
-
+- Amazon Cognito
+ 
 对于移动应用，还可以利用Amazon Cognito来实现无服务架构，使用它你就可以不需要一个后台来管理诸如用户认证、网络状态、存储和同步的工作。Amazon Cognito可以为用户生成唯一的身份认证标志token，基于这个token就可以控制用户的数据访问权限。Amazon Cognito还可以给用户提供临时的AWS credentials，这样用户就可以通过IAM来访问受保护地的数据。比如可以通过使用IAM来实现只允许特定用户访问特定的S3数据。
+
+- AWS IoT
+
+AWS IoT提供面向IoT需求的无服务架构
