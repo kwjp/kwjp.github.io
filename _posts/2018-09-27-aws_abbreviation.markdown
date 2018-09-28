@@ -16,4 +16,5 @@ categories: aws
 |AMI　　　　　|Amazon Machine Image					   |aws的快照|
 |EBS　　　　　|Amazon Elastic Block Store			   |块存储卷|
 |SNS　　　　　|Amazon Simple Notification Service	   |消息通知|
+|ELB　　　　　|Elastic Load Balancing            	   |负载均衡|
 
