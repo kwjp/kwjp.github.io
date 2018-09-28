@@ -26,6 +26,7 @@ Another approach that can reduce the operational complexity of running applicati
 只需要将代码上传到AWS Lambda就行。AWS Lambda是通过代码的执行时间和次数来计费的。
 
 - Amazon API Gateway
+
 它运行在AWS Lambda上，使用API Gateway可以构建几乎可以无限伸缩的异步API，如果结合S3里的静态资源，这种模式几乎可以完整地运行一个网站应用。
 
 
