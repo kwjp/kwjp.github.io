@@ -12,12 +12,9 @@ categories: aws
 aws上提供了许多服务，开发者可以利用他们来提升系统能力，这些服务包括数据库，机器学习，数据分析，队列，搜索，邮件，通知等等。比如SQS，它便宜好用稳定，企业还不用再自行维护队列服务。再比如S3，可以随时随地存储任意数据，而不用担心其容量、硬盘配置、可重用性等等，并且S3还可以作为你网站或者APP的静态资源存储器，提供高可用性的同时，还会自动伸缩来应对访问高峰。同样的例子还有Amazon CloudFront，它可以用来实现内容分发。ELB来实现负载均衡，DynamoDB实现NoSQL，Amazon CloudSearch实现搜索，Amazon Elastic Transcoder实现音视频解码等等
 
 
-###Serverless Architectures无服务架构
+### Serverless Architectures无服务架构
 降低运维复杂度的另一个方式就是无服务架构。在这种架构模式中，可以不管理任何服务器等基础设施来给网站、app、数据分析设置IoT
 等需求构建事件驱动和异步驱动的服务。这种架构可以缩减费用，因为你不需要为任何基础设施付费，也不需要为了高可用性而为冗余的基础设施付费。
-
-
-Another approach that can reduce the operational complexity of running applications is that of the serverless architectures. It is possible to build both event-driven and synchronous services for mobile, web, analytics, and the Internet of Things (IoT) without managing any server infrastructure. These architectures can reduce costs because you are not paying for underutilized servers, nor are you provisioning redundant infrastructure to implement high availability.
 
 ### 无服务架构的实现方式
 
