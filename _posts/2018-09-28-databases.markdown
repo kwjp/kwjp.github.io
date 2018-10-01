@@ -18,5 +18,6 @@ categories: aws
 - 你需要什么功能？你需要强类型控制，还是需要灵活性？是否需要复杂的报表和查询功能？你的开发人员更熟悉关系型数据库还是NoSQL
 
 ## 关系型数据库
+关系型数据库通常把
 
 Relational databases (often called RDBS or SQL databases) normalize data into well-defined tabular structures known as tables, which consist of rows and columns. They provide a powerful query language, flexible indexing capabilities, strong integrity controls, and the ability to combine data from multiple tables in a fast and efficient manner. Amazon Relational Database Service (Amazon RDS) makes it easy to set up, operate, and scale a relational database in the cloud.
