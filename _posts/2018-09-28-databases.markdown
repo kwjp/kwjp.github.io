@@ -20,4 +20,14 @@ categories: aws
 ## 关系型数据库
 关系型数据库通常把
 
-Relational databases (often called RDBS or SQL databases) normalize data into well-defined tabular structures known as tables, which consist of rows and columns. They provide a powerful query language, flexible indexing capabilities, strong integrity controls, and the ability to combine data from multiple tables in a fast and efficient manner. Amazon Relational Database Service (Amazon RDS) makes it easy to set up, operate, and scale a relational database in the cloud.
+关系型数据库里数据通常被标准化成表格华的数据结构，它通常由行和列组成。关系型数据库有强大的查询语句和完整性控制，灵活的索引，还能进行快速高效的多表连接查询。AWS的RDS能够在云端提供便于安装，维护，扩展和使用的高弹性关系型数据库。
+
+###弹性
+关系型数据库可以通过垂直弹性来伸缩，比如升级到一个更大的RDS实例，或者增加存储设备的速度和容量。另外，如果使用RDS for Aurora，对于
+
+
+Relational databases can scale vertically (e.g., by upgrading to a larger Amazon RDS DB instance or adding more and faster storage). In addition, consider the use of Amazon RDS for Aurora, which is a database engine designed to deliver much higher throughput compared to standard MySQL running on the same hardware. For read-heavy applications, you can also horizontally scale beyond the capacity constraints of a single DB instance by creating one or more read replicas.
+
+
+
+
