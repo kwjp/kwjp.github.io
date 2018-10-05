@@ -25,3 +25,33 @@ resilience
 
 consistent  
 一致的; 连续的; 不矛盾的; 坚持的
+
+partitioning  
+分区
+
+replication
+冗余
+
+fashion 
+a way of doing things 方式
+
+transparently  
+透明地
+
+provision
+供给 规定，条款
+
+disruption  
+宕机
+
+denormalized  
+非标准化
+
+migrate  
+迁移
+
+evaluate  
+评估
+
+
+
