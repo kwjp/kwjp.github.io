@@ -33,10 +33,10 @@ categories: aws
 #### 关系型数据库的负载均衡
 关系型数据库的负载均衡需要考虑数据分区和切片
 
-横向分区（通常称作sharding）,在这个策略中，每个分区本身都是一个数据存储区，但所有分区都有相同的模式。每个分区被称为碎片并持有一个特定的数据集，例如在一个电子商务应用一组特定客户的订单。
+horizon partitioning横向分区（通常称作sharding）,在这个策略中，每个分区本身都是一个数据存储区，但所有分区都有相同的模式。每个分区被称为碎片并持有一个特定的数据集，例如在一个电子商务应用一组特定客户的订单。
 
 
-纵向分区。该策略中，每个分区拥有数据仓库的某些部分数据域（举例来说就是一个数据的某些表分发到不同的数据库上面）。这些数据域可以根据其使用的场景来进行分区。比如说，将经常访问的一些数据库置于一个数据仓库，而不常访问的数据仓库置于另一个数据仓库。
+vertical partitioning纵向分区。该策略中，每个分区拥有数据仓库的某些部分数据域（举例来说就是一个数据的某些表分发到不同的数据库上面）。这些数据域可以根据其使用的场景来进行分区。比如说，将经常访问的一些数据库置于一个数据仓库，而不常访问的数据仓库置于另一个数据仓库。
 
 在这种模式下数据会被分散到许多数据库实例上，尽管Amazon RDS降低了数据操作的难度，但是横向分区sharding还是会增加应用的复杂度，应用穿层数据需要修改为能够感知到数据时如何分割的，这样才能直接地到正确的数据库实例上去查询。另外任何模式的修改都需要跨多个数据库才能执行，所以有必要使得这个过程自动化。
 
@@ -50,3 +50,6 @@ categories: aws
 
 
 
+## NoSQL Databases
+
+NoSQL is a term used to describe databases that trade some of the query and transaction capabilities of relational databases for a more flexible data model that seamlessly scales horizontally. NoSQL databases utilize a variety of data models, including graphs, key-value pairs, and JSON documents. NoSQL databases are widely recognized for ease of development, scalable performance, high availability, and resilience. Amazon DynamoDB is a fast and flexible NoSQL database23 service for applications that need consistent, single-digit millisecond latency at any scale. It is a fully managed cloud database and supports both document and key-value store models.
