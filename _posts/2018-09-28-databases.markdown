@@ -51,6 +51,31 @@ vertical partitioning纵向分区。该策略中，每个分区拥有数据仓�
 
 
 ## NoSQL Databases
-NoSQL可以分担
+NoSQL可以用来将关系型数据库的负载转化成更灵活的数据模型，这种数据模型可以无逢地获得水平弹性。NoSQL支持多种多样的数据模型，包括图片，键值对，和Json文件。NoSQL由于便于开发，可扩展性强，高可用性以及可快速恢复等特性而广受推荐Amazon DynamoDB就是一个高速而又灵活的NoSQL数据库，提供毫秒级别的延迟，支持文件和简直对的模型存储。
 
-NoSQL is a term used to describe databases that trade some of the query and transaction capabilities of relational databases for a more flexible data model that seamlessly scales horizontally. NoSQL databases utilize a variety of data models, including graphs, key-value pairs, and JSON documents. NoSQL databases are widely recognized for ease of development, scalable performance, high availability, and resilience. Amazon DynamoDB is a fast and flexible NoSQL database23 service for applications that need consistent, single-digit millisecond latency at any scale. It is a fully managed cloud database and supports both document and key-value store models.
+### 可扩展性
+
+NoSQL数据库通常通过数据分片和冗余来获得数据读写水平弹性，这些对于数据层都是透明的，应用无需在应用的数据层写数据分层逻辑。Amazon DynamoDB会自动帮你管理好数据分层，会在当你数据表增大或者读写负载增大时自动增加分层。
+
+### 高可用性
+Amazon DynamoDB在三个AWS region有数据冗余
+
+### 反面模式Anti-Patterns
+如果你的数据不能够非规范化，或者你的应用需要很多连接查询或者有复杂的事务控制，那就该使用关系型数据库而不是NoSQL，
+
+如果要存储大的二进制文件，比如音像和图片，那就推荐使用S3，然后把元数据存在数据库里。
+
+
+
+## 数据仓库Data Warehouse
+数据仓库是一种特殊的关系型数据库，它为大数据的分析和报表做了特殊优化，数据仓库可以连接各种来源的交易数据，并在此基础上做数据分析和提供决策依据。
+
+在传统IT环境中构建数据仓库又贵又复杂，在aws上用Amazon Redshift很方便经济地构建数据仓库。
+
+
+
+
+
+
+
+

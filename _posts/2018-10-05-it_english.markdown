@@ -11,7 +11,7 @@ term
 seamlessly  
 无缝地
 
-trade sth for sth  / exchange sth for sth else/barter sth for sth 
+trade sth for sth  / exchange sth for sth else/barter sth for sth   
 一物交换另一物，也就是以物易物
 
 utilize  
@@ -23,7 +23,7 @@ Confidential
 resilience  
 弹性; 回弹; 弹力; 快速恢复的能力
 
-consistent  
+consistent    
 一致的; 连续的; 不矛盾的; 坚持的
 
 partitioning  
@@ -32,13 +32,13 @@ partitioning
 replication
 冗余
 
-fashion 
+fashion   
 a way of doing things 方式
 
 transparently  
 透明地
 
-provision
+provision  
 供给 规定，条款
 
 disruption  
@@ -52,6 +52,20 @@ migrate
 
 evaluate  
 评估
+
+scalable  
+可扩展
+
+disparate    
+截然不同
+
+transactional  
+交易
+
+leverage   
+借助已有的…实现新（或更好）的目标  杠杆
+
+
 
 
 
