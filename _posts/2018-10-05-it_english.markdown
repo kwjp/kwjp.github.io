@@ -66,6 +66,26 @@ leverage
 借助已有的…实现新（或更好）的目标  杠杆
 
 
+optimum  
+最优的，最佳的
+
+parallel  
+平行的，并行的
+
+compression  
+压缩
+
+compatible  
+兼容
+
+intelligence  
+情报 信息 才智
+
+high concurrency  
+高并发
+
+
+
 
 
 

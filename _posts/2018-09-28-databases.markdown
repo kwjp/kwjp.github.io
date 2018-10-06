@@ -73,6 +73,38 @@ Amazon DynamoDB在三个AWS region有数据冗余
 在传统IT环境中构建数据仓库又贵又复杂，在aws上用Amazon Redshift很方便经济地构建数据仓库。
 
 
+### 可扩展性 Scalability
+Amazon Redshift通过大规模并行处理，列式数据存储和目标数据压缩编码等方式来得到最优的高效的存储和查询性能。它特别适合用在大数据的分析和报表的需求上。Amazon Redshift MPP架构允许你可通过增加数据仓库集群中的节点数量来提升性能。
+
+
+
+### 高可用性 High Availability
+Amazon Redshift有很多特性来支撑提升其可用性。我们推荐使用多节点集群模式来部署你的数据仓库，这样你的数据会自动冗余写入到集群中的其他节点上。当然数据也可以持续地备份到s3上。Redshift可以持续监控集群的健康状况，并在节点故障时按需回复数据。
+
+### 反面模式Anti-Patterns
+因为Amazon Redshift是一个基于SQL的关系型数据库系统，它兼容其它关系型数据库管理系统和BI商业智能工具，尽管Redshift提供一些经典的关系型数据库系统功能，比如事务处理功能，但它不适合用在这些场合。如果你有高并发地每次读写少量数据的需求，那就应该用关系型数据库或者NoSQL。
+
+## 搜索 Search
+需要优雅的搜索功能的应用通常会增加关系型数据库活NoSQL的数据库容量。搜索服务可以用来索引和索索结构化的数据或自由文本格式，也支持一些普通数据库没有的功能，比如说个性化的结果排序，过滤，同义词，词干等。
+
+在aws上，你可以选择Amazon CloudSearch and Amazon Elasticsearch Service (Amazon ES)，一方面，Amazon CloudSearch是一个管理服务，它几乎不需要配置，也会自动扩展。另一方面，ES提供开源的API，这样提高了操控性，并可以进行更详尽的配置。ES进化成了不仅仅是一个搜索引擎，它还经常被当作一个分析引擎用于数据分析，实时应用监控以及用户操作流分析
+
+
+
+### 可扩展性 Scalability
+Amazon CloudSearch和ES都可以通过数据分区和冗余来水平扩展，区别在于Amazon CloudSearch的话你就不用担心分区的数量和冗余情况，因为服务会完全自动地帮你完成了。
+
+### 高可用性High Availability
+这两个搜索服务都可以通过夸AZ冗余数据来提高可用性
+
+
+
+
+
+
+
+
+
 
 
 

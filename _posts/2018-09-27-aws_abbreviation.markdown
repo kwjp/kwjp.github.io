@@ -17,4 +17,5 @@ categories: aws
 |EBS　　　　　|Amazon Elastic Block Store			   |块存储卷|
 |SNS　　　　　|Amazon Simple Notification Service	   |消息通知|
 |ELB　　　　　|Elastic Load Balancing            	   |负载均衡|
+|ES 　　　　　|Elasticsearch Service                 |搜索|
 
