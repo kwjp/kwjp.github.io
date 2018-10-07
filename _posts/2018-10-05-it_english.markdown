@@ -84,6 +84,10 @@ intelligence
 high concurrency  
 高并发
 
+implicit  
+隐式的
+
+
 
 
 
