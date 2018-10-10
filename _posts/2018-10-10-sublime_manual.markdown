@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "sublime的一些操作记录"
+title:  "sublime的使用笔记"
 date:   2018-10-10 00:00:00 +0000
 categories: sublime
 ---
@@ -37,7 +37,7 @@ Preferences-->Key Bindings-User
 
 ```
 
-###快速滚动
+### 快速滚动
 
  - 到底部(通常查看log时用)
 
@@ -46,4 +46,14 @@ Preferences-->Key Bindings-User
  - 到顶部
 
 <kbd>Ctrl</kbd>+<kbd>Home</kbd>
+
+
+### 安装package
+windows环境的操作  
+<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>p</kbd>  
+输入Install Package  ，在弹出的框里输入 package name回车
+
+
+
+
 
