@@ -87,6 +87,16 @@ high concurrency
 implicit  
 隐式的
 
+promptly  
+迅速地
+
+assessing  
+评估
+
+reliably  
+可靠地
+
+
 
 
 
