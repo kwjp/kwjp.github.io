@@ -31,15 +31,13 @@ categories: aws
 在这一层，也不应该配置一些所谓的深层次健康检查，这种检查会太频繁地反悔失败结果。比如如果你还要检查你的应用能否连接数据库，那么当数据库故障时就会导致所有的web服务的健康检查结果失败。分层方法通常是最合适的，深层次检查可以在Route53层进行。
 
 
-Route53到底是什么
 
 
+## 数据持续存储 Durable Data Storage
+应用和用户会产生并需要维护各种各样的数据，数据的可用性和完整性对一个优秀的框架来说是至关重要的，数据复制是引入数据的冗余从机的一种技术，它不仅可以横向扩展增加读的并发量，还能增加数据的持久性和可用性。数据复制可以通过很多种方式来实现。
 
 
-
-At this layer, it might not be a good idea to configure what is called a deep health check, which is a test that depends on other layers of your application to be successful (this could result in false positives). For example, if your health check also assesses whether the instance can connect to a back end database, you risk marking all of your web servers as unhealthy when that database node becomes shortly unavailable. A layered approach is often the best. A deep health check might be appropriate to implement at the Amazon Route53 level. By running a more holistic check that determines if that environment is able to actually provide the required functionality, you can configure Amazon Route53 to failover to a static version of your website until your database is up and running again.
-
-
+同步复制模式将数据成功写入主从库视为事务成功的标志，它可以在主节点写入失败时保证数据完整性，同步复制模式可以增加数据库读的并发能力，而且它从库与主库几乎是实时同步的，所以数据的一致性很强。同步复制模式的一个缺点就是主库被从库耦合，写事务在所有从库完成之前不能成功。同步复制模式是数据完整性与可用性的折中方案，尤其是在跨越不可靠或高延迟的连接的拓扑网络中，也正因为如此不建议在同步复制中维持过多的从库实例。
 
 
 
