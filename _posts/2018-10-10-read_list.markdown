@@ -1,0 +1,23 @@
+---
+layout: post
+title:  "阅读记录"
+date:   2018-10-10 00:00:00 +0000
+categories: memory
+---
+
+觉得好，还没细读的文章记录一下
+
+[Android 9 适配](https://mp.weixin.qq.com/s/2EPTrPHnTwkqifZqy7I-Rg?utm_source=androidweekly.io&utm_medium=website)
+
+[Android配置构建变体
+](https://developer.android.com/studio/build/build-variants?hl=zh-cn)
+
+
+[Android平台化的复用实践](https://mp.weixin.qq.com/s/woIJf1QIB5HBIVPLWR6AIQ?utm_source=androidweekly.io&utm_medium=website)
+
+[lettcode](https://github.com/apachecn/awesome-algorithm?utm_source=androidweekly.io&utm_medium=website)
+
+
+
+
+
