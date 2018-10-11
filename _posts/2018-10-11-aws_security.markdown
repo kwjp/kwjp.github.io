@@ -24,9 +24,8 @@ AWS在共享安全责任模型下运行，其中AWS负责底层云基础架构�
 
 另一个安全风险的来源是使用服务账户。在传统的环境中，服务账户通常在授权后持久化存储在一个配置文件中，在aws上，你可以通过IAM角色来给应用授予短期权限，这些授权是自动分发和流转的。对于移动应用，可以利用Amazon Cognito来允许客户端设备通过临时令牌获得对AWS资源的受控访问。对于AWS Management Console用户，您可以类似地通过临时令牌提供临时访问，而不是在您的AWS账户中创建IAM用户。通过这种方式，离职的雇员从你们公司的身份目录中移除后也会失去对aws的访问账户。
 
-
-Another common source of security risk is the use of service accounts. In a traditional environment, service accounts would often be assigned long-term credentials stored in a configuration file. On AWS, you can instead use IAM roles to grant permissions to applications running on Amazon EC2 instances through the use of short-term credentials. Those credentials are automatically distributed and rotated. For mobile applications, the use of Amazon Cognito allows client devices to get controlled access to AWS resources via temporary tokens. For AWS Management Console users you can similarly provide federated access through temporary tokens instead of creating IAM users in your AWS account. In that way, an employee who leaves your organization and is removed from your organization’s identity directory will also lose access to your AWS account
-
+Security as Code
+Traditional security frameworks, regulations, and organizational policies define security requirements related to things such as firewall rules, network access controls, internal/external subnets, and operating system hardening. You can implement these in an AWS environment as well, but you now have the opportunity to capture them all in a script that defines a “Golden Environment.” This means you can create an AWS CloudFormation script that captures your security policy and reliably deploys it. Security best practices can now be reused among multiple projects and become part of your continuous integration pipeline. You can perform security testing as part of your release cycle, and automatically discover application gaps and drift from your security policy.
 
 
 
