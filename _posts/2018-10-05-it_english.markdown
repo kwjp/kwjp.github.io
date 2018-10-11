@@ -96,6 +96,9 @@ assessing
 reliably  
 可靠地
 
+Quorum
+分布式
+
 
 
 
