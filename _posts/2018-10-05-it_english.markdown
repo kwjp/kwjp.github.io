@@ -150,7 +150,10 @@ simultaneously
 fluctuate  
 波动
 
+intensive  
+密集
 
-
+retrieve
+查询
 
 
