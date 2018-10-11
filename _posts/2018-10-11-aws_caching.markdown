@@ -19,7 +19,10 @@ Amazon ElastiCache是便于部署运维和扩展的云端内存缓存。它支�
 静态资源(e.g., images, css files, streaming of pre-recorded video)和动态资源(e.g., html response, live video) 的备份可以缓存在Amazon CloudFront中，它是一个在世界各地有很多节点的内容分发系统CDN。边缘缓存可以让你的资源存放在靠近用户的设备上，从而降低时延，能够给应用的终端用户提供高速稳定的传输速率。
 
 
+对内容的请求被发送到S3服务器或者你的源服务器，如果源运行在AWS上，那么这个请求将会被转发到最合适的网络路径，以便用户获得稳定可靠的体验。Amazon CloudFront可以用来分发你的整个网站，包括不能被缓存的内容。这种情况的好处是Amazon CloudFront重用Amazon CloudFront边缘缓存和源服务器之间的现有连接，减少了每个源请求的时延。另外Amazon CloudFront也用来避免互联网瓶颈并最大化利用边缘位置与最终用户之间的带宽。这意味着，在浏览Web应用程序时，Amazon CloudFront可以加速您的动态内容的交付并且，并为查看者提供一致，可靠，个性化的体验。当然Amazon CloudFront不仅可以用于下载动态内容，它也能优化上传的请求。
 
 
 
-Requests for your content are carried back to Amazon S3 or your origin servers. If the origin is running on AWS then requests will be transferred over optimized network paths for a more reliable and consistent experience. Amazon CloudFront can be used to deliver your entire website, including non-cachable content. The benefit in that case is that Amazon CloudFront reuses existing connections between the Amazon CloudFront edge and the origin server reducing connection setup latency for each origin request. Other connection optimizations are also applied to avoid Internet bottlenecks and fully utilize available bandwidth between the edge location and the viewer. This means that Amazon CloudFront can speed-up the delivery of your dynamic content and provide your viewers with a consistent and reliable, yet personalized experience when navigating your web application. Amazon CloudFront also applies the same performance benefits to upload requests as those applied to the requests for downloading dynamic content.
+
+
+
