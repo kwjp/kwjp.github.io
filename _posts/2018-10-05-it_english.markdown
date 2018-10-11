@@ -96,13 +96,26 @@ assessing
 reliably  
 可靠地
 
-Quorum
+Quorum  
 分布式
 
+decouples  
+解耦
 
+at the expense of sth  
+以sth为代价
 
+ascertain  
+探明, 查明, 探悉, 判明, 捉摸, 树立
 
+rack  
+机架
 
+proportion  
+比例，比重
+
+dramatic  
+戏剧性，巨大的
 
 
 
