@@ -165,7 +165,17 @@ granular
 粒度
 
 
+competency  
+技能；能力；本领
 
+exposure  
+风险
+
+eliminate  
+消除 淘汰 消灭
+
+integrate  
+整合
 
 
 

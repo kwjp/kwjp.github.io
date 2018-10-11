@@ -14,6 +14,26 @@ aws提供了许多功能来帮助架构进行深度防御。从网络级别开�
 
 ### Offload Security Responsibility to AWS
 
+AWS在共享安全责任模型下运行，其中AWS负责底层云基础架构的安全性，您负责保护您在AWS中部署的工作负载。通过这种方式，你可以通过使用AWS托管服务来减少您的职责范围并专注于您的核心竞争力。比如当你使用aws的服务诸如Amazon RDS, Amazon ElastiCache, Amazon CloudSearch, etc.安全补丁相关的作业就完全变成aws的责任，这不仅可以降低团队的运营开销，还可以减少您的漏洞风险。
 
 
-AWS operates under a shared security responsibility model, where AWS is responsible for the security of the underlying cloud infrastructure and you are responsible for securing the workloads you deploy in AWS. This way, you can reduce the scope of your responsibility and focus on your core competencies through the use of AWS managed services. For example, when you use services such as Amazon RDS, Amazon ElastiCache, Amazon CloudSearch, etc., security patches become the responsibility of AWS. This not only reduces operational overhead for your team, but it could also reduce your exposure to vulnerabilities.
+
+
+### 减少特权访问 Reduce Privileged Access
+当你将服务器视为可编程资源时，你也可以从中获得安全方面的好处。你可以随时按需更改你的服务器。你可以取消访客对生产环境的访问权限。当一个实例产生了问题，你可以自动或者手动地替换掉它，然而在你替换实例之前，应该收集并存储足够的日志，以便你能够在开发环境中重新部署并在你的持续开发流程中修复掉这个问题，重点是要明确在云计算架构中服务器是一个临时资源。你可以在Amazon CloudWatch Logs中收集这些信息，如果你需要访问它们但是却没有权限，你可以使用API操作来实时访问，以便尽在需要的时候打开网络进行管理。你可以将这些请求和你的管理系统相结合，这样这些访问请求就变得可追踪并且是在授权后才动态处理的。
+
+另一个安全风险的来源是使用服务账户。在传统的环境中，服务账户通常在授权后持久化存储在一个配置文件中，在aws上，你可以通过IAM角色来给应用授予短期权限，这些授权是自动分发和流转的。对于移动应用，可以利用Amazon Cognito来允许客户端设备通过临时令牌获得对AWS资源的受控访问。对于AWS Management Console用户，您可以类似地通过临时令牌提供临时访问，而不是在您的AWS账户中创建IAM用户。通过这种方式，离职的雇员从你们公司的身份目录中移除后也会失去对aws的访问账户。
+
+
+Another common source of security risk is the use of service accounts. In a traditional environment, service accounts would often be assigned long-term credentials stored in a configuration file. On AWS, you can instead use IAM roles to grant permissions to applications running on Amazon EC2 instances through the use of short-term credentials. Those credentials are automatically distributed and rotated. For mobile applications, the use of Amazon Cognito allows client devices to get controlled access to AWS resources via temporary tokens. For AWS Management Console users you can similarly provide federated access through temporary tokens instead of creating IAM users in your AWS account. In that way, an employee who leaves your organization and is removed from your organization’s identity directory will also lose access to your AWS account
+
+
+
+
+
+
+
+
+
+
+
