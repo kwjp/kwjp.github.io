@@ -153,7 +153,25 @@ fluctuate
 intensive  
 密集
 
-retrieve
+retrieve  
 查询
+
+
+Vulnerability   
+计算机安全隐患
+
+
+granular  
+粒度
+
+
+
+
+
+
+
+
+
+
 
 

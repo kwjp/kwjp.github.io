@@ -19,4 +19,6 @@ categories: aws
 |ELB　　　　　|Elastic Load Balancing            	   |负载均衡|
 |ES 　　　　　|Elasticsearch Service                   |搜索|
 |RI 　　　　　|Reserved Instance                       |预留实例|
+|WAF 　　　　|Web Application Firewall                |网站应用级入侵防御系统|
+
 
