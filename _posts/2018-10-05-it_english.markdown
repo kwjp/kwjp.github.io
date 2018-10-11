@@ -117,5 +117,40 @@ proportion
 dramatic  
 戏剧性，巨大的
 
+plethora  
+过多，过剩
+
+
+evolve  
+发展，演化
+
+
+interpret  
+理解
+
+Elasticity  
+弹性
+
+significantly  
+显著的
+
+sufficiently  
+充分地
+
+benchmarking  
+基准
+
+exceeds  
+超出
+
+simultaneously  
+同时
+
+
+fluctuate  
+波动
+
+
+
 
 
