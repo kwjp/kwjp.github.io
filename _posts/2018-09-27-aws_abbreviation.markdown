@@ -20,5 +20,9 @@ categories: aws
 |ES 　　　　　|Elasticsearch Service                   |搜索|
 |RI 　　　　　|Reserved Instance                       |预留实例|
 |WAF 　　　　|Web Application Firewall                |网站应用级入侵防御系统|
+|S3 RRS  　|Amazon S3 Reduced Redundancy Storage    |S3 低冗余存储|
+|ACL     　|Access Control List                     |访问控制列表|
+
+
 
 

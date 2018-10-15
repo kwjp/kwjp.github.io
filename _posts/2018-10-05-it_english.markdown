@@ -178,10 +178,12 @@ integrate
 整合
 
 
+insulate  
+使隔热；使隔音；使绝缘
 
 
-
-
+exclusively  
+仅仅；专门；单独
 
 
 
