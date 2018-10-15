@@ -185,5 +185,12 @@ insulate
 exclusively  
 仅仅；专门；单独
 
+eliminate  
+排除；消除；清除 淘汰 消灭；干掉
 
+conjunction  
+连词，连接词 结合；联合；同时发生
+
+
+ 
 
