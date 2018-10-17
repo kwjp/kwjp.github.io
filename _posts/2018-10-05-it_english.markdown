@@ -150,9 +150,6 @@ simultaneously
 fluctuate  
 波动
 
-intensive  
-密集
-
 retrieve  
 查询
 
@@ -171,9 +168,6 @@ competency
 exposure  
 风险
 
-eliminate  
-消除 淘汰 消灭
-
 integrate  
 整合
 
@@ -191,6 +185,68 @@ eliminate
 conjunction  
 连词，连接词 结合；联合；同时发生
 
-
+malicious  
+恶意的
  
+
+suspend   
+停止，暂停，中止
+
+permanently  
+总是；持久地；永久地
+
+parallel  
+平行的
+ 
+ 
+arbitrary  
+任意的；随机的；随心所欲的
+ 
+and so forth  
+and so on; and other such things; et cetera   
+ 
+intensive  
+密集的，集中的；加强的；深入的
+
+
+immutable  
+永恒的；不可改变的
+
+
+vault  
+金库，保险库
+
+
+prorate  
+按比例计算
+
+manipulate  
+操纵，控制
+
+explicitly  
+明确地，显式地
+
+indicate  
+标示；表明；显示；暗示
+
+appropriate  
+适当的，恰当的；合适的
+
+
+restrict  
+限制；限定；妨碍
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
