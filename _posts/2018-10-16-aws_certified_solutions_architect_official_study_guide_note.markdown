@@ -9,6 +9,10 @@ categories: aws
 
  - Each Amazon S3 bucket is created in a specific region that you choose.data in an Amazon S3 bucket is stored in that region unless you explicitly copy it to another bucket located in a different region.
  - Every object stored in an S3 bucket is identified by a unique identifier called a key. You can think of the key as a filename. A key can be up to 1024 bytes of Unicode UTF-8 characters,including embedded slashes, backslashes, dots, and dashes.Keys must be unique within a single bucket, but different buckets can contain objects with the same key.
+ - a bucket is a single flat namespace of keys with no structure.
+ - Amazon S3 is secure by default; when you create a bucket or object in Amazon S3, only you have access.
+ - coarse-grained access controls：Amazon S3 Access Control Lists [ACLs]
+ - fine-grained access controls ：Amazon S3 bucket policies, AWS Identity and Access Management [IAM]policies, and query-string authentication
  - All Amazon S3 objects by default are private, meaning that only the owner has access.
  - If you are using Amazon S3 in a GET-intensive mode, such as a static website hosting, for best performance you should consider using an Amazon CloudFront distribution as a caching layer in front of your Amazon S3 bucket.
 
@@ -20,6 +24,5 @@ categories: aws
 ### 练习题
 第二章第12题
 复制为什么不能防止误删或恶意删除
-
 
 

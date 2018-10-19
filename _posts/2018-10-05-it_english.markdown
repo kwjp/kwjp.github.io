@@ -6,7 +6,7 @@ categories: english
 ---
 
 term  
-期限 学期 合同期 条款 术语 
+期限 学期 合同期 条款 术语
 
 seamlessly  
 无缝地
@@ -187,7 +187,7 @@ conjunction
 
 malicious  
 恶意的
- 
+
 
 suspend   
 停止，暂停，中止
@@ -197,14 +197,14 @@ permanently
 
 parallel  
 平行的
- 
- 
+
+
 arbitrary  
 任意的；随机的；随心所欲的
- 
+
 and so forth  
 and so on; and other such things; et cetera   
- 
+
 intensive  
 密集的，集中的；加强的；深入的
 
@@ -237,16 +237,24 @@ restrict
 限制；限定；妨碍
 
 
+propagate  
+繁殖，繁衍 传播，散播；宣传
+
+stale  
+不新鲜的，过时的，老套的
+
+coarse-grained  
+粗粒度
+
+subtly  
+in a way that is small and difficult to notice or describe, but important
+
+associated  
+有关联的；相关的
+
+explicit  
+清楚明白的；明确的；不含糊的
 
 
-
-
-
-
-
-
-
-
-
-
-
+delimiter  
+分隔符
