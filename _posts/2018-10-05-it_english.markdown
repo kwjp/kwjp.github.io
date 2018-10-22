@@ -263,3 +263,41 @@ delimiter
 estimate  
 评估
 
+constrained  
+被迫 拘谨的；局促的；不自然的
+
+
+straightforward  
+容易理解的，简单的
+
+detach  
+使分离，使分开；拆掉
+
+extract  
+取出；拔出；提取
+
+penalty  
+刑罚，惩罚，处罚 不利，劣势
+
+catastrophic  
+灾难性的
+
+drain  
+排水,排泄
+
+commence  
+开始；着手
+
+accomplish  
+完成；实现；达到；做到
+
+exercise  
+练习；训练；演习
+
+
+segment  
+部分；片；段；瓣；节；（尤指）弓形，圆缺，球缺
+
+
+
+
