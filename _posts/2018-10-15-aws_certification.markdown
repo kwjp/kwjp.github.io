@@ -51,3 +51,11 @@ categories: aws
 
 [pdf转mobi](http://www.convertfiles.com/)
 
+[心得](https://rickhw.github.io/2016/04/22/AWS/AWS-Certified-Solutions-Architect_Associate/)
+
+[官方备考指南，有列出重点白皮书](https://aws.amazon.com/cn/certification/certification-prep/)
+
+[it茶馆的免费在线模拟考试](https://aws.xiaopeiqing.com/posts/aws-certified-solutions-architect-associate-exam.html)
+
+[it茶馆的题库40元](https://aws.xiaopeiqing.com/posts/category/exercise)
+

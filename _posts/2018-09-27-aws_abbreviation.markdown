@@ -9,10 +9,10 @@ categories: aws
 | ------  | ------                                | ------ |
 |EMR　　　　　|Amazon Elastic MapReduce　　　　　　　　　    |大数据处理|
 |S3　　　　　 |Amazon Simple Storage Service　　　　　    |对象存储|
-|RDS　　　　　|Amazon Relational Database Service      
-|SES　　　　　|Amazon Simple Email Service
-|SQS　　　　　|Amazon Simple Queue Service
-|SWF　　　　　|Amazon Simple Workflow
+|RDS　　　　　|Amazon Relational Database Service      ||
+|SES　　　　　|Amazon Simple Email Service             ||
+|SQS　　　　　|Amazon Simple Queue Service             ||
+|SWF　　　　　|Amazon Simple Workflow                  ||
 |AMI　　　　　|Amazon Machine Image					   |aws的快照|
 |EBS　　　　　|Amazon Elastic Block Store			   |块存储卷|
 |SNS　　　　　|Amazon Simple Notification Service	   |消息通知|
@@ -24,10 +24,9 @@ categories: aws
 |ACL     　|Access Control List                     |访问控制列表|
 |IGW     　|Internet Gateways                       |Internet 网关|
 |ENI     　|Elastic Network Interfaces              |虚拟网卡|
-
-
-
-
-
-
- 
+|VPG     　|Virtual Private Gateways                ||
+|CGW     　|Customer Gateways                       ||
+|STS     　|AWS Security Token Service              ||
+|OTP     　|One-Time Password                       ||
+|OLTP     |Online Transaction Processing           |普通数据库|
+|OLAP     |Online Analytical Processing            |大数据数据仓库|

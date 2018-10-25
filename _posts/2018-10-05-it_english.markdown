@@ -298,6 +298,67 @@ exercise
 segment  
 部分；片；段；瓣；节；（尤指）弓形，圆缺，球缺
 
+facilitate  
+促进；促使；使便利
+
+delegate  
+（把…）委派（给…），（把…）委托（给…）；授权（给…）
+
+federate  
+（使）组成同盟；（使）结成联邦
+
+federation  
+同盟，联盟；联邦
+
+authentication  
+认证; 身份验证; 证明，鉴定; 密押;
+
+authorization  
+授权，批准; 批准（或授权）的证书;
+
+tricky  
+难办的；难对付的
+
+hindrance  
+阻碍，障碍
+
+
+intricacy  
+错综复杂
+
+
+wildcard  
+通配符
+
+consolidate  
+（使）巩固；（使）加强
+
+semantics  
+语义
+
+contrast  
+差别，差异；对照，对比
+
+rigid  
+僵硬的；固定的；不能弯曲的
+
+accordingly  
+照着；相应地
+
+delimit  
+标出…的界限，给…划界
+
+prioritize  
+确定（事项的）优先次序
+
+throttle  
+阻挡；压制；扼杀
+
+
+
+
+
+
 
 
 
