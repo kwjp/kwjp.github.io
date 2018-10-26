@@ -354,6 +354,24 @@ prioritize
 throttle  
 阻挡；压制；扼杀
 
+drastically  
+大幅地
+
+tradeoff  
+平衡
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
