@@ -30,3 +30,4 @@ categories: aws
 |OTP     　|One-Time Password                       ||
 |OLTP     |Online Transaction Processing           |普通数据库|
 |OLAP     |Online Analytical Processing            |大数据数据仓库|
+|TLD      |Top-Level Domains                       ||
