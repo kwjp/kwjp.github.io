@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Button.setClickable(false) is not working"
-date:   2019-02-14 00:00:00 +0000
+date:   2019-02-21 00:00:00 +0000
 categories: android
 ---
 
