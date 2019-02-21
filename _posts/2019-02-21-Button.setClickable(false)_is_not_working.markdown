@@ -1,0 +1,16 @@
+---
+layout: post
+title:  "Button.setClickable(false) is not working"
+date:   2019-02-14 00:00:00 +0000
+categories: android
+---
+
+### Q
+I have set mButton.setClickable(false); in my code but still this button is invoked by global button.setOnClickListener of my code.
+
+
+### A
+That seems to be by design. This is from the documentation of the View.setOnClickListener method:
+
+Register a callback to be invoked when this view is clicked. If this view is not clickable, it becomes clickable.
+
