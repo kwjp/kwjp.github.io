@@ -9,7 +9,7 @@ categories: git
 ### 1.Bubble sort
 
 
-```sh
+```java
 public static void bubbleSort(int[] arr) {
 	boolean isChanged;
 	int length = arr.length;
@@ -28,6 +28,18 @@ public static void bubbleSort(int[] arr) {
 }
 ```
 
-
-
+### 2.Insert sort
+```java
+public void insertionSort(int[] array) {
+    for (int i = 1; i < array.length; i++) {
+        int k = array[i];
+        int j = i - 1;
+        while (j >= 0 && array[j] > k) {
+            array[j + 1] = array[j];
+            j--;
+        }
+        array[j + 1] = k;
+    }
+}
+```
 
