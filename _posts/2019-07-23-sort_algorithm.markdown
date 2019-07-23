@@ -59,3 +59,33 @@ public static void selectionSort(int[] arr) {
 	}
 }
 ```
+
+### 4.Quick sort
+
+```java
+public void quickSort(int[] arr, int head, int tail) {
+	if (head < tail) {
+		int i = head;
+		int j = tail;
+		int key = arr[i];
+		while (i < j) {
+			while (i < j && arr[j] >= key) {
+				j--;
+			}
+			if (i < j) {
+				arr[i++] = arr[j];
+			}
+			while (i < j && arr[i] < key) {
+				i++;
+			}
+			if (i < j) {
+				arr[j--] = arr[i];
+			}
+		}
+		arr[i] = key;
+		quickSort(arr, head, i - 1);
+		quickSort(arr, i + 1, tail);
+	}
+}
+```
+
