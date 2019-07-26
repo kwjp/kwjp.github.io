@@ -1,0 +1,104 @@
+---
+layout: post
+title:  "Handler"
+date:   2019-07-26 00:00:00 +0000
+categories: git
+---
+
+
+### 1.memory leak
+当按照下面形式使用handler时，Android studio的lint会给提示
+ >This Handler class should be static or leaks might occur (anonymous android.os.Handler) more... (Ctrl+F1)
+
+```java
+private static Handler handler = new Handler(){
+	@Override
+	public void handleMessage(Message msg) {
+		//do something
+	}
+};
+```
+
+如何避免呢？参考下面写法(main thread中创建Handler的情况)
+
+```java
+	private Handler handler;
+	
+	@Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(xxx);
+        handler = new MyHandler(this);
+    }
+
+    static class MyHandler extends Handler {
+        private final WeakReference<Activity> mActivity;
+
+        MyHandler(Activity activity) {
+            super();
+            mActivity = new WeakReference<>(activity);
+        }
+
+        @Override
+        public void handleMessage(Message msg) {
+            Activity activity = mActivity.get();
+            if (activity != null) {
+                activity.handleMessage(msg);
+            }
+        }
+    }
+
+```
+
+### 2.Handler Looper Queue
+#### 2.1 非main thread创建Handler
+handler在初始化时，通过Looper.myLooper()从ThreadLocal上去取Looper
+
+```java
+    public class Handler{
+		public Handler(Callback callback, boolean async) {
+			...
+			mLooper = Looper.myLooper();
+			if (mLooper == null) {
+				throw new RuntimeException(
+					"Can't create handler inside thread " + Thread.currentThread()
+							+ " that has not called Looper.prepare()");
+			}
+			mQueue = mLooper.mQueue;
+			mCallback = callback;
+			mAsynchronous = async;
+		}	
+	}
+	
+	public class Looper{
+		static final ThreadLocal<Looper> sThreadLocal = new ThreadLocal<Looper>();
+		public static @Nullable Looper myLooper() {
+			return sThreadLocal.get();
+		}
+	}
+```
+
+Handler构造方法里的异常比较常见，其中Main Thread已经帮我们创建了Looper，所以可以直接new Handler而不报错
+
+那么，在非main thread中创建handler时，就需要像下面这样
+
+```java
+Looper.prepare();
+handler = new MyHandler(this);
+Looper.loop();
+```
+
+#### 2.2 Looper.prepare();
+
+作用：创建Looper并通过ThreadLocal来实现线程绑定
+
+```java
+private static void prepare(boolean quitAllowed) {
+	if (sThreadLocal.get() != null) {
+		throw new RuntimeException("Only one Looper may be created per thread");
+	}
+	sThreadLocal.set(new Looper(quitAllowed));
+}
+```
+
+
