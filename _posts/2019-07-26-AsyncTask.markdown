@@ -107,10 +107,9 @@ public class ThreadPoolExecutor extends AbstractExecutorService{
         handler.rejectedExecution(command, this);
     }
 }
-'''
+```
 
 
-### 2.
 
 
 
