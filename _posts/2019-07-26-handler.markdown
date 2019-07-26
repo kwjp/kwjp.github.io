@@ -132,33 +132,9 @@ public class Looper{
 				// No message indicates that the message queue is quitting.
 				return;
 			}
-
-			// This must be in a local variable, in case a UI event sets the logger
-			final Printer logging = me.mLogging;
-			if (logging != null) {
-				logging.println(">>>>> Dispatching to " + msg.target + " " +
-						msg.callback + ": " + msg.what);
-			}
-
-			final long traceTag = me.mTraceTag;
-			long slowDispatchThresholdMs = me.mSlowDispatchThresholdMs;
-			long slowDeliveryThresholdMs = me.mSlowDeliveryThresholdMs;
-			if (thresholdOverride > 0) {
-				slowDispatchThresholdMs = thresholdOverride;
-				slowDeliveryThresholdMs = thresholdOverride;
-			}
-			final boolean logSlowDelivery = (slowDeliveryThresholdMs > 0) && (msg.when > 0);
-			final boolean logSlowDispatch = (slowDispatchThresholdMs > 0);
-
-			final boolean needStartTime = logSlowDelivery || logSlowDispatch;
-			final boolean needEndTime = logSlowDispatch;
-
-			if (traceTag != 0 && Trace.isTagEnabled(traceTag)) {
-				Trace.traceBegin(traceTag, msg.target.getTraceName(msg));
-			}
-
-			final long dispatchStart = needStartTime ? SystemClock.uptimeMillis() : 0;
-			final long dispatchEnd;
+			
+			...
+			
 			try {
 				//target is a Handler
 				msg.target.dispatchMessage(msg);
@@ -168,38 +144,8 @@ public class Looper{
 					Trace.traceEnd(traceTag);
 				}
 			}
-			if (logSlowDelivery) {
-				if (slowDeliveryDetected) {
-					if ((dispatchStart - msg.when) <= 10) {
-						Slog.w(TAG, "Drained");
-						slowDeliveryDetected = false;
-					}
-				} else {
-					if (showSlowLog(slowDeliveryThresholdMs, msg.when, dispatchStart, "delivery",
-							msg)) {
-						// Once we write a slow delivery log, suppress until the queue drains.
-						slowDeliveryDetected = true;
-					}
-				}
-			}
-			if (logSlowDispatch) {
-				showSlowLog(slowDispatchThresholdMs, dispatchStart, dispatchEnd, "dispatch", msg);
-			}
-
-			if (logging != null) {
-				logging.println("<<<<< Finished to " + msg.target + " " + msg.callback);
-			}
-
-			// Make sure that during the course of dispatching the
-			// identity of the thread wasn't corrupted.
-			final long newIdent = Binder.clearCallingIdentity();
-			if (ident != newIdent) {
-				Log.wtf(TAG, "Thread identity changed from 0x"
-						+ Long.toHexString(ident) + " to 0x"
-						+ Long.toHexString(newIdent) + " while dispatching to "
-						+ msg.target.getClass().getName() + " "
-						+ msg.callback + " what=" + msg.what);
-			}
+			
+			...
 
 			msg.recycleUnchecked();
 		}
