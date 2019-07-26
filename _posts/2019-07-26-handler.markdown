@@ -22,7 +22,7 @@ private static Handler handler = new Handler(){
 如何避免呢？参考下面写法(main thread中创建Handler的情况)
 
 ```java
-	private Handler handler;
+    private Handler handler;
 	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -55,7 +55,7 @@ private static Handler handler = new Handler(){
 handler在初始化时，通过Looper.myLooper()从ThreadLocal上去取Looper
 
 ```java
-    public class Handler{
+	public class Handler{
 		public Handler(Callback callback, boolean async) {
 			...
 			mLooper = Looper.myLooper();
