@@ -1,0 +1,112 @@
+---
+layout: post
+title:  "View"
+date:   2019-07-29 00:00:00 +0000
+categories: Android
+---
+
+
+### 1.onTouch & onTouchEvent
+onTouch先调用， onTouchEvent后调用
+如果onTouch()返回true, onTouchEvent()就不会调用
+其中，ListenerInfo是一个监听器的集合
+
+```java
+public class View{
+    public boolean dispatchTouchEvent(MotionEvent event) {
+        boolean result = false;
+		
+		...
+
+        if (onFilterTouchEventForSecurity(event)) {
+            if ((mViewFlags & ENABLED_MASK) == ENABLED && handleScrollBarDragging(event)) {
+                result = true;
+            }
+            //noinspection SimplifiableIfStatement
+            ListenerInfo li = mListenerInfo;
+            if (li != null && li.mOnTouchListener != null
+                    && (mViewFlags & ENABLED_MASK) == ENABLED
+                    && li.mOnTouchListener.onTouch(this, event)) {
+                result = true;
+            }
+
+            if (!result && onTouchEvent(event)) {
+                result = true;
+            }
+        }
+
+        ...
+
+        return result;
+    }
+	
+	static class ListenerInfo {
+        protected OnFocusChangeListener mOnFocusChangeListener;
+        private ArrayList<OnLayoutChangeListener> mOnLayoutChangeListeners;
+        protected OnScrollChangeListener mOnScrollChangeListener;
+        private CopyOnWriteArrayList<OnAttachStateChangeListener> mOnAttachStateChangeListeners;
+        public OnClickListener mOnClickListener;
+        protected OnLongClickListener mOnLongClickListener;
+        protected OnContextClickListener mOnContextClickListener;
+        protected OnCreateContextMenuListener mOnCreateContextMenuListener;
+        private OnKeyListener mOnKeyListener;
+        private OnTouchListener mOnTouchListener;
+        private OnHoverListener mOnHoverListener;
+        private OnGenericMotionListener mOnGenericMotionListener;
+        private OnDragListener mOnDragListener;
+        private OnSystemUiVisibilityChangeListener mOnSystemUiVisibilityChangeListener;
+        OnApplyWindowInsetsListener mOnApplyWindowInsetsListener;
+        OnCapturedPointerListener mOnCapturedPointerListener;
+        private ArrayList<OnUnhandledKeyEventListener> mUnhandledKeyListeners;
+    }
+}
+
+```
+
+
+### 2.Custom view TestView overrides onTouchEvent but not performClick more...
+
+View的点击事件实际是在onTouchEvent()中触发的，所以如果override了onTouchEvent，onClickListener 的onClick()就有可能调用不到，所以就会给上述提示。
+
+同理，结合1，如果设置了onTouchListener 且onTouch() return true 的话，也会有同样问题，就会出现lint提示
+
+
+### 3.Activity的事件分发
+
+Activity通过dispatchTouchEvent把触摸事件分发给其Window（唯一实现类PhoneWindow）,
+PhoneWindow又通过superDispatchTouchEvent分发给其持有的DecorView，而DecorView是一个FrameLayout。这样就完成了Activity到ViewGroup的分发。
+如果整个分发过程中的onTouchEvent都return false了，最终由activity的onTouchEvent(ev)消耗
+
+```java
+public class Activity{
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        if (ev.getAction() == MotionEvent.ACTION_DOWN) {
+            onUserInteraction();
+        }
+        if (getWindow().superDispatchTouchEvent(ev)) {
+            return true;
+        }
+        return onTouchEvent(ev);
+    }
+}
+
+public abstract class Window {
+	public abstract boolean superDispatchTouchEvent(MotionEvent event);
+}
+
+public class PhoneWindow extends Window{
+	private DecorView mDecor;
+    
+	@Override
+    public boolean superDispatchTouchEvent(MotionEvent event) {
+        return mDecor.superDispatchTouchEvent(event);
+    }
+}
+
+public class DecorView extends FrameLayout
+    public boolean superDispatchTouchEvent(MotionEvent event) {
+        return super.dispatchTouchEvent(event);
+    }
+}
+
+```
