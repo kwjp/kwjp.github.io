@@ -1,0 +1,7 @@
+---
+layout: post
+title: "blog"
+date: 2020-01-16 17:51:20 +0900
+categories: java
+---
+blog
