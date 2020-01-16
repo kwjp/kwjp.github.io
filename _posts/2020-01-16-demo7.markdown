@@ -1,0 +1,7 @@
+---
+layout: post
+title: "demo7"
+date: 2020-01-16 18:27:48 +0900
+categories: java
+---
+**demo7**
