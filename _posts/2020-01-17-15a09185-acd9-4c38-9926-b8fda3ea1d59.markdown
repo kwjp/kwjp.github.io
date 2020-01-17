@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "github synchronize demo"
-date: 2020-01-17 15:59:13 +0900
+title: "synchronize demo"
+date: 2020-01-17 16:01:28 +0900
 categories: java
 ---
-### 主要特性
+ ### 主要特性update
 
 - 支持“标准”Markdown / CommonMark和Github风格的语法，也可变身为代码编辑器；
 - 支持实时预览、图片（跨域）上传、预格式文本/代码/表格插入、代码折叠、搜索替换、只读模式、自定义样式主题和多语言语法高亮等功能；
@@ -271,12 +271,12 @@ Content Cell  | Content Cell
 
 #### 特殊符号 HTML Entities Codes
 
-&copy; &  &uml; &trade; &iexcl; &pound;
-&amp; &lt; &gt; &yen; &euro; &reg; &plusmn; &para; &sect; &brvbar; &macr; &laquo; &middot; 
+© &  ¨ ™ ¡ £
+& < > ¥ € ® ± ¶ § ¦ ¯ « · 
 
-X&sup2; Y&sup3; &frac34; &frac14;  &times;  &divide;   &raquo;
+X² Y³ ¾ ¼  ×  ÷   »
 
-18&ordm;C  &quot;  &apos;
+18ºC  "  '
 
 ### Emoji表情 :smiley:
 
