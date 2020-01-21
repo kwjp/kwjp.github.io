@@ -1,0 +1,127 @@
+---
+layout: post
+title: "在centos7上部署ssm架构的应用"
+date: 2020-01-21 07:57:24 +0000
+categories: java
+---
+#### 1.登陆准备
+修改证书权限
+sudo chmod 0600 ~/Downloads/aws.pem
+
+使用证书登陆
+ssh -i /file_path/your_file_name.pem centos@your_server_ip
+刚创建好的ec2主机只能用证书登陆，且centos主机只能用centos用户登陆，不能使用root
+https://aws.amazon.com/cn/premiumsupport/knowledge-center/ec2-password-login/
+
+修改为可用root和密码登陆
+sudo vi /etc/ssh/sshd_config
+开启下面两行，值指定为yes
+PermitRootLogin yes
+PasswordAuthentication yes
+
+重启sshd使配置生效
+sudo service sshd restart
+
+#### 2.常用linux指令
+查看linux版本号
+cat /etc/redhat-release
+
+创建文件夹
+mkdir temp
+
+从本地拷贝文件到linux
+`scp file_name.war root@your_server_ip_or_url:location_to_put_file
+`
+
+
+#### 3.软件安装与配置
+安装vim
+yum install vim
+
+查找yum可用java版本
+yum search java
+
+安装openjdk
+yum install java-1.8.0-openjdk-devel.x86_64
+
+配置java
+vim /etc/profile
+
+centos8的情况配置
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.232.b09-2.el8_1.x86_64/
+export CLASSPATH=.:$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+export PATH=$PATH:$JAVA_HOME/bin
+
+centos7的情况配置
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.232.b09-0.el7_7.x86_64/
+export CLASSPATH=.:$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+export PATH=$PATH:$JAVA_HOME/bin
+
+全局变量立即生效
+source /etc/profile
+
+确认java安装是否成功
+java -version
+
+yum安装maven git
+yum install maven git
+
+yum安装与配置mysql
+yum install mysql mysql-server
+
+装完默认用户root没有密码，但是无法登陆，需要先更改权限并重启mysql
+
+更改mysql权限
+chown -R mysql:mysql /var/lib/mysql
+
+重启mysql
+service mysqld restart
+
+刚装完root用户没有密码，直接进入
+mysql -uroot
+
+更改密码
+use mysql;
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'kuangwen';
+FLUSH PRIVILEGES;
+
+授权远程登陆
+update user  set host = '%' where user = 'root';
+FLUSH PRIVILEGES;
+
+数据库远程登陆方式
+mysql -h your_ip_or_url -P 3306 -uyour_username -pyour_password
+
+防火墙开放80等端口
+systemctl enable firewalld
+systemctl start firewalld
+firewall-cmd --zone=public --add-port=80/tcp --permanent
+firewall-cmd --zone=public --add-port=8088/tcp --permanent
+firewall-cmd --zone=public --add-port=8080/tcp --permanent
+firewall-cmd --zone=public --add-port=3306/tcp --permanent
+firewall-cmd --reload
+firewall-cmd --list-ports
+
+下载tomcat
+yum install wget
+wget http://ftp.meisei-u.ac.jp/mirror/apache/dist/tomcat/tomcat-9/v9.0.30/bin/apache-tomcat-9.0.30.zip
+
+解压tomcat
+yum install unzip
+unzip apache-tomcat-9.0.30.zip
+
+tomcat 变更执行权限
+chmod 777 *.sh
+
+修改tomcat默认端口号
+vim conf/server.xml
+Connector port="8080"   -> Connector port="80"
+
+centos端口号占用查看
+yum install lsof
+lsof -i tcp:80
+
+根据pid杀进程
+kill -9 16130<pid>
+
+
