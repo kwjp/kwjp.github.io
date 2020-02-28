@@ -1,10 +1,10 @@
 ---
 layout: post
 title: "使用xml实现配置化的可行性验证"
-date: 2020-02-28 03:44:19 +0000
+date: 2020-02-28 03:52:18 +0000
 categories: java
 ---
-###1.新建task
+ ###1.新建task
 
 并在脚本中添加如下代码
 
@@ -47,7 +47,8 @@ org.jenkinsci.plugins.scriptsecurity.sandbox.RejectedAccessException: No such fi
 ```
 
 重点是第一行的
-<font color=red>org.jenkinsci.plugins.scriptsecurity.sandbox.RejectedAccessException </font>  
+**org.jenkinsci.plugins.scriptsecurity.sandbox.RejectedAccessException
+**
 如果报这个错，按照如下步骤进行处理
 
 ###3.解决RejectedAccessException
@@ -72,8 +73,9 @@ org.jenkinsci.plugins.scriptsecurity.sandbox.RejectedAccessException: Scripts no
 
 仔细对比这两次的第一行  
 初次build：
-org.jenkinsci.plugins.scriptsecurity.sandbox.RejectedAccessException: <font color=red>No such field found: field groovy.util.Node a1</font>    
+org.jenkinsci.plugins.scriptsecurity.sandbox.RejectedAccessException: No such field found: field groovy.util.Node a1
 
 第二次build
-org.jenkinsci.plugins.scriptsecurity.sandbox.RejectedAccessException: <font color=red>Scripts not permitted to use method groovy.util.XmlParser parseText java.lang.String</font>     
+org.jenkinsci.plugins.scriptsecurity.sandbox.RejectedAccessException:  Scripts not permitted to use method groovy.util.XmlParser parseText java.lang.String    
+
 虽然他们都是因为权限拒绝而执行失败，但是被拒绝的具体权限不一样。这时候，重复步骤3.1，进入In-process Script Approval，发现"Approve"按钮又出现了，果断点击，新增授权记录。然后重复当前(3.2)的操作知道没有RejectedAccessException出现为止
