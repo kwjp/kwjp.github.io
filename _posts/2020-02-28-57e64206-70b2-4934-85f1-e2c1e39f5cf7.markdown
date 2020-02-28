@@ -1,0 +1,79 @@
+---
+layout: post
+title: "使用xml实现配置化的可行性验证"
+date: 2020-02-28 03:44:19 +0000
+categories: java
+---
+###1.新建task
+
+并在脚本中添加如下代码
+
+```
+pipeline {
+    agent any
+
+   stages {
+        stage('Hello') {
+            steps {
+                cleanWs()
+
+                script{
+                    def xml = '<root><one a1="uno!"></one><two>Some text No1!</two><two>Some text No2!</two><two>Some text No3!</two></root>'
+                    def rootNode = new XmlParser().parseText(xml)
+                    println rootNode
+                    println rootNode['two'][1].text()
+                }
+            }
+        }
+    }
+}
+```
+
+###2.build task
+第一次build应该会报错，进入本次build的Console Output
+预计会看到有如下报错
+
+```
+org.jenkinsci.plugins.scriptsecurity.sandbox.RejectedAccessException: No such field found: field groovy.util.Node a1
+	at org.jenkinsci.plugins.scriptsecurity.sandbox.groovy.SandboxInterceptor.unclassifiedField(SandboxInterceptor.java:425)
+	at org.jenkinsci.plugins.scriptsecurity.sandbox.groovy.SandboxInterceptor.onGetProperty(SandboxInterceptor.java:409)
+	at org.kohsuke.groovy.sandbox.impl.Checker$6.call(Checker.java:291)
+	at org.kohsuke.groovy.sandbox.impl.Checker.checkedGetProperty(Checker.java:295)
+	at org.kohsuke.groovy.sandbox.impl.Checker.checkedGetProperty(Checker.java:258)
+	at com.cloudbees.groovy.cps.sandbox.SandboxInvoker.getProperty(SandboxInvoker.java:29)
+	at com.cloudbees.groovy.cps.impl.PropertyAccessBlock.rawGet(PropertyAccessBlock.java:20)
+	at WorkflowScript.run(WorkflowScript:13)
+	
+```
+
+重点是第一行的
+<font color=red>org.jenkinsci.plugins.scriptsecurity.sandbox.RejectedAccessException </font>  
+如果报这个错，按照如下步骤进行处理
+
+###3.解决RejectedAccessException
+####3.1 Approve Signatures
+Manage Jenkins -> In-process Script Approval -> Approve  
+点击完"Approve"按钮后，它应该就会消失，然后在“ Signatures already approved:”栏目中新增了一条记录
+
+
+####3.2多次Approve
+上面3.1执行完毕后，回到task，并进行build，应该还会再次失败，根据Console Output发现还是RejectedAccessException，这时候别慌，仔细看具体log
+
+```
+org.jenkinsci.plugins.scriptsecurity.sandbox.RejectedAccessException: Scripts not permitted to use method groovy.util.XmlParser parseText java.lang.String
+	at org.jenkinsci.plugins.scriptsecurity.sandbox.whitelists.StaticWhitelist.rejectMethod(StaticWhitelist.java:262)
+	at org.jenkinsci.plugins.scriptsecurity.sandbox.groovy.SandboxInterceptor.onMethodCall(SandboxInterceptor.java:161)
+	at org.kohsuke.groovy.sandbox.impl.Checker$1.call(Checker.java:158)
+	at org.kohsuke.groovy.sandbox.impl.Checker.checkedCall(Checker.java:162)
+	at com.cloudbees.groovy.cps.sandbox.SandboxInvoker.methodCall(SandboxInvoker.java:17)
+	at WorkflowScript.run(WorkflowScript:11)
+	at ___cps.transform___(Native Method)
+```
+
+仔细对比这两次的第一行  
+初次build：
+org.jenkinsci.plugins.scriptsecurity.sandbox.RejectedAccessException: <font color=red>No such field found: field groovy.util.Node a1</font>    
+
+第二次build
+org.jenkinsci.plugins.scriptsecurity.sandbox.RejectedAccessException: <font color=red>Scripts not permitted to use method groovy.util.XmlParser parseText java.lang.String</font>     
+虽然他们都是因为权限拒绝而执行失败，但是被拒绝的具体权限不一样。这时候，重复步骤3.1，进入In-process Script Approval，发现"Approve"按钮又出现了，果断点击，新增授权记录。然后重复当前(3.2)的操作知道没有RejectedAccessException出现为止
