@@ -21,6 +21,9 @@ print_hi('Tom')
 Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
 
 [Google](http://www.google.com/)
+[検証環境](https://ve.m.dpoint.jp/app/applink/toStore.html?launch=dpointcard&storeid=123)
+[商用環境](https://dpoint.jp/app/applink/toStore.html?launch=dpointcard&storeid=123)
+
 
 
 [jekyll-docs]: https://jekyllrb.com/docs/home
