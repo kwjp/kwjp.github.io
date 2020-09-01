@@ -31,6 +31,7 @@ Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most ou
 [coupon](https://dpoint.jp/app/applink/viewURL.html?change_url=https%3A%2F%2Fdpoint.jp%2Fcoupon.html)
 [guide1](https://dpoint.jp/app/applink/viewURL.html?change_url=https%3A%2F%2Fdpoint.jp%2Fguide%2F)
 [guide2](https://dpoint.jp/app/applink/viewURL.html?change_url=https%3A%2F%2Fdpoint.jp%2Fguide%2Faaaaaa)
+[guide3](https://dpoint.jp/app/applink/viewURL.html?change_url=https%3A%2F%2Fdpoint.jp%2Fguide%2F%3Faaa%3Dbbb%26ccc%3Ddd_ee)
 [point_detail](https://dpoint.jp/app/applink/viewURL.html?change_url=https%3A%2F%2Fdpoint.jp%2Fmember%2Fpoint_info%2Findex.html)
 [top](https://dpoint.jp/app/applink/viewURL.html?change_url=https%3A%2F%2Fdpoint.jp%2Findex.html)
 [use_store_list](https://dpoint.jp/app/applink/viewURL.html?change_url=https%3A%2F%2Fdpoint.jp%2Fctrw%2Fweb%2Fuse%2Ftown%2Ftown_use_list.html)
