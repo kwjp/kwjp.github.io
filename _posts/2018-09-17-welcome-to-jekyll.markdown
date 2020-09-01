@@ -41,6 +41,8 @@ Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most ou
 [web2](https://dpoint.jp/app/applink/viewURL.html?change_url=https%3A%2F%2Fwww.google.com%2F)
 
 
+[change_url無し](https://dpoint.jp/app/applink/viewURL.html)
+
 
 
 
