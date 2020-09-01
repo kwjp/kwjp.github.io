@@ -25,7 +25,7 @@ Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most ou
 [商用環境](https://dpoint.jp/app/applink/toStore.html?launch=dpointcard&storeid=123)
 
 [top](https://dpoint.jp/app/applink/viewURL.html?change_url=aaaa)
-[dpoint_card](https://dpoint.jp/app/applink/viewURL.html?change_url=https%3A%2F%2Fdpoint.jp%2Fctrw%2Fregister%2Fs-001.html%0A)
+[dpoint_card](https://dpoint.jp/app/applink/viewURL.html?change_url=https%3A%2F%2Fdpoint.jp%2Fctrw%2Fregister%2Fs-001.html)
 [accumulate](https://dpoint.jp/app/applink/viewURL.html?change_url=https%3A%2F%2Fdpoint.jp%2Facc.html)
 [use](https://dpoint.jp/app/applink/viewURL.html?change_url=https%3A%2F%2Fdpoint.jp%2Fuse.html)
 [coupon](https://dpoint.jp/app/applink/viewURL.html?change_url=https%3A%2F%2Fdpoint.jp%2Fcoupon.html)
