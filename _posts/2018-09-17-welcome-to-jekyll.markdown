@@ -36,6 +36,11 @@ Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most ou
 [top](https://dpoint.jp/app/applink/viewURL.html?change_url=https%3A%2F%2Fdpoint.jp%2Findex.html)
 [use_store_list](https://dpoint.jp/app/applink/viewURL.html?change_url=https%3A%2F%2Fdpoint.jp%2Fctrw%2Fweb%2Fuse%2Ftown%2Ftown_use_list.html)
 
+[web1](https://dpoint.jp/app/applink/viewURL.html?change_url=https%3A%2F%2Fsearch.dpoint.jp%2Fmap%2F%3Fid%3Dbbccdd)
+[web2](https://dpoint.jp/app/applink/viewURL.html?change_url=https%3A%2F%2Fdpoint.jp%2Fcp%3Fmm%3Dnn)
+[web2](https://dpoint.jp/app/applink/viewURL.html?change_url=https%3A%2F%2Fwww.google.com%2F)
+
+
 
 
 
