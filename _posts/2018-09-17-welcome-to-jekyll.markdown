@@ -47,7 +47,9 @@ Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most ou
 
 [point_stage](com.nttdocomo.dpoint.start://point_stage)
 
+[host_timeline](com.nttdocomo.dpoint.start://host_timeline)
 
+[host_message_list](com.nttdocomo.dpoint.start://host_message_list)
 
 
 [jekyll-docs]: https://jekyllrb.com/docs/home
