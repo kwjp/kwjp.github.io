@@ -45,7 +45,7 @@ Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most ou
 
 [チュートリアル完了画面](com.nttdocomo.dpoint.start://tutorial_completed)
 
-[チュートリアル完了画面2](com.nttdocomo.dpoint.start://point_stage)
+[point_stage](com.nttdocomo.dpoint.start://point_stage)
 
 
 
