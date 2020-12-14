@@ -44,6 +44,7 @@ Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most ou
 [change_url無し](https://dpoint.jp/app/applink/viewURL.html)
 
 [チュートリアル完了画面](com.nttdocomo.dpoint.start://tutorial_completed)
+[チュートリアル完了画面](com.nttdocomo.dpoint.start://point_stage)
 
 
 
