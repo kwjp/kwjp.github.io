@@ -2,8 +2,10 @@
 fdisk -l
 
 ## 挂载U盘
-mount.exfat-fuse /dev/sda1 /mnt/shared_disk/
+```Java
+mount.exfat-fuse /dev/sda1 /samba/DLNA/Video/mnt/
 mount.exfat-fuse /dev/sda2 /mnt/private_disk/
+```
 
 ## 卸载U盘
 umount /dev/sda1
