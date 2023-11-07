@@ -20,7 +20,7 @@ sudo ln -s /opt/certbot/bin/certbot /usr/bin/certbot
 
 ## renew certbot
 ```
-certbot certonly --force-renew -d mock.run5.jp -d tl.mock.run5.jp
+sudo certbot certonly --force-renew -d mock.run5.jp -d tl.mock.run5.jp
 ```
 
 ## setup certbot
