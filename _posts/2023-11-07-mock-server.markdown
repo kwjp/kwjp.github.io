@@ -19,7 +19,7 @@ sudo /opt/certbot/bin/pip install certbot certbot-nginx
 sudo ln -s /opt/certbot/bin/certbot /usr/bin/certbot
 ```
 
-## renew certbot(?not work)
+## renew mock certbot(?not work)
 ```
 sudo certbot certonly --force-renew --manual --preferred-challenges=dns -d mock.run5.jp -d tl.mock.run5.jp
 ```
@@ -66,7 +66,7 @@ trust_host_root_cert: false
 ./ngrok -subdomain tl -config=ngrok.cfg 80
 ```
 
-# renew certbot
+# renew certbot(mock2)
 
 ## get mock2 cert
 ```
