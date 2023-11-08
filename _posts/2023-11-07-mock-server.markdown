@@ -1,4 +1,5 @@
 https://www.ywbj.cc/?p=965
+# init
 
 ## 必要パッケージインストール
 ```
@@ -18,7 +19,7 @@ sudo /opt/certbot/bin/pip install certbot certbot-nginx
 sudo ln -s /opt/certbot/bin/certbot /usr/bin/certbot
 ```
 
-## renew certbot
+## renew certbot(?not work)
 ```
 sudo certbot certonly --force-renew --manual --preferred-challenges=dns -d mock.run5.jp -d tl.mock.run5.jp
 ```
@@ -63,4 +64,38 @@ trust_host_root_cert: false
 ## start macos client
 ```
 ./ngrok -subdomain tl -config=ngrok.cfg 80
+```
+
+# renew certbot
+
+## get mock2 cert
+```
+sudo certbot certonly --standalone -d mock2.run5.jp -d tl.mock2.run5.jp
+sudo cp /etc/letsencrypt/live/mock2.run5.jp/fullchain.pem ngrok/assets/server/tls/snakeoil.crt
+sudo cp /etc/letsencrypt/live/mock2.run5.jp/privkey.pem ngrok/assets/server/tls/snakeoil.key
+sudo cp ngrok/assets/server/tls/snakeoil.crt ngrok/assets/client/tls/ngrokroot.crt
+```
+
+## rebuild
+```
+sudo rm -rf ngrok/bin/darwin_amd64/ ngrok/bin/go-bindata ngrok/bin/ngrokd
+sudo GOOS=linux GOARCH=amd64 make release-server
+sudo GOOS=darwin GOARCH=amd64 make release-client
+```
+
+## start server
+```
+sudo ./bin/ngrokd -domain="mock2.run5.jp" -httpAddr=":80" -httpsAddr=":443" -tunnelAddr=":4443"
+```
+
+## config & start client
+```
+touch ngrok.cfg
+
+vim ngrok.cfg
+server_addr: "mock2.run5.jp:4443"
+trust_host_root_cert: false
+
+./ngrok -subdomain tl -config=ngrok.cfg 80
+
 ```
